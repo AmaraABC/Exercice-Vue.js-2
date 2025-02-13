@@ -1,15 +1,17 @@
 <template>
     <section>
-        <button v-bind:type="data.type ? data.type:'submit'" v-bind:class="data.class">Valider</button>
+        <button :id="data.id" :type="data.type ? data.type:'button'" :class="'button ' + (data.class ? data.class: '')">{{ data.textContent }}</button>
     </section>
 </template>
 
 <script setup lang="ts">
 interface ButtonComponenentProperties {
     data: {
-        id?: string,
+        id: string | number,
+        textContent: string,
+        class?: string,
         name?: string,
-        type?: string,  
+        type?: string  
     }
 };
 
